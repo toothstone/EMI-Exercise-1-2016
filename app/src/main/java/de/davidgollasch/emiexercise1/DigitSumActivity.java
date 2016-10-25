@@ -55,23 +55,21 @@ public class DigitSumActivity extends AppCompatActivity {
             qsum = Integer.parseInt(etNumber.getText().toString());
             qsum = getDigitSum(qsum);
             tvOutput.setText(Integer.toString(qsum));
-        /*
-         * b) Calculate digit sum
-         *    (Hint: This can be done recursively using an additional function/method
-         *    private int getDigitSum(int n))
-         */
-
-        /*
-         * c) Print result
-         */
-
         }
         catch (NumberFormatException e) {
             tvOutput.setText("Die Eingabe übersteigt den zulässigen Wertebereich");}
     }
 
+    /**
+     * Calculates the digit sum
+     * @param i - Number
+     * @return digitsum of i
+     */
     private int getDigitSum(int i) {
-        if (i<=9) {return i;}
-        return (i%10) + getDigitSum(i/10);
+        int dsum=0;
+        while (i>=1)
+        {   dsum = dsum + (i%10);
+            i=i/10;}
+        return (dsum);
     }
 }
