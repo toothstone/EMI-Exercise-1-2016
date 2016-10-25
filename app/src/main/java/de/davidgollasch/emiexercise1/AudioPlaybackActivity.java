@@ -121,14 +121,18 @@ public class AudioPlaybackActivity extends AppCompatActivity {
         if(bassBoost.getStrengthSupported()) {
             bassBoost.setStrength((short) 1000);
         }
-        bassBoost.setEnabled(true);
-        tbtnBassBoost.setChecked(true);
+
+        if(tbtnBassBoost.isChecked()) {
+            bassBoost.setEnabled(true);
+        }
 
         // VIRTUALIZER
         virtualizer = new Virtualizer(0, sessionID);
         virtualizer.setStrength((short) 1000);
-        virtualizer.setEnabled(true);
-        tbtnVirtualizer.setChecked(true);
+
+        if(tbtnVirtualizer.isChecked()) {
+            virtualizer.setEnabled(true);
+        }
     }
 
     /**
@@ -201,9 +205,8 @@ public class AudioPlaybackActivity extends AppCompatActivity {
      * Handle Virtualizer Switch
      */
     private void VirtualizerClicked() {
-
-        /* TODO: IMPLEMENT THIS */
-
+        ConfigureSoundEffects(mpEasternEmotion.getAudioSessionId());
+        ConfigureSoundEffects(mpReggaeFeeling.getAudioSessionId());
     }
 
 }
