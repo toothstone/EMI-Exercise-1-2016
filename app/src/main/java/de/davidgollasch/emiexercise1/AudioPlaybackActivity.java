@@ -135,8 +135,15 @@ public class AudioPlaybackActivity extends AppCompatActivity {
      * Handle toggling of Eastern Emotion switch
      */
     private void EasternEmotionToggled() {
+        if (sEasternEmotion.isChecked()){
+            if(sReggaeFeeling.isChecked()){
+                sReggaeFeeling.toggle();
+            }
+            PlaybackEasternEmotion();
+        } else {
+            PauseEasternEmotion();
+        }
 
-        /* TODO: IMPLEMENT THIS */
 
     }
 
@@ -145,53 +152,49 @@ public class AudioPlaybackActivity extends AppCompatActivity {
      */
     private void PlaybackEasternEmotion() {
 
-        /* TODO: IMPLEMENT THIS */
+        ConfigureSoundEffects(mpEasternEmotion.getAudioSessionId());
+        mpEasternEmotion.start();
 
     }
 
     /**
      * Halts playback of first audio
      */
-    private void PauseEasternEmotion() {
-
-        /* TODO: IMPLEMENT THIS*/
-
-    }
+    private void PauseEasternEmotion() {mpEasternEmotion.pause();}
 
     /**
      * Handle toggling of Reggae Feeling switch
      */
     private void ReggaeFeelingToggled() {
 
-        /* TODO: IMPLEMENT THIS */
-
+        if (sReggaeFeeling.isChecked()){
+            if (sEasternEmotion.isChecked()){
+                sEasternEmotion.toggle();}
+            PlaybackReggaeFeeling();
+        } else {
+            PauseReggaeFeeling();
+        }
     }
 
     /**
      * Starts playback of second audio
      */
     private void PlaybackReggaeFeeling() {
-
-        /* TODO: IMPLEMENT THIS */
-
+        ConfigureSoundEffects(mpReggaeFeeling.getAudioSessionId());
+        mpReggaeFeeling.start();
     }
 
     /**
      * Halts playback of second audio
      */
-    private void PauseReggaeFeeling() {
-
-        /* TODO: IMPLEMENT THIS */
-
-    }
+    private void PauseReggaeFeeling() {mpReggaeFeeling.pause();}
 
     /**
      * Handle Bass Boost Switch
      */
     private void BassBoostClicked() {
-
-        /* TODO: IMPLEMENT THIS */
-
+        ConfigureSoundEffects(mpEasternEmotion.getAudioSessionId());
+        ConfigureSoundEffects(mpReggaeFeeling.getAudioSessionId());
     }
 
     /**

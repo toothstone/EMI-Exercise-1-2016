@@ -46,8 +46,14 @@ public class FibonacciActivity extends AppCompatActivity {
      */
     private void CalculateFibonacciRow() {
         String output = "";
-
-        /* TODO: IMPLEMENT THIS */
+        int v1o, i, v1, v2;
+        v2=0; v1=1;
+        for (i=1;i<=29;i++){
+            v1o=v2;
+            v2=v1;
+            v1=v1o+v2;
+            output = output + v1 + ";";
+        }
 
         tvOutput.setText(output);
     }

@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+
 public class DigitSumActivity extends AppCompatActivity {
 
     private TextView tvOutput;
@@ -29,34 +30,31 @@ public class DigitSumActivity extends AppCompatActivity {
      * Construct the Interactive Structure
      */
     private void InitializeActivity() {
+        tvOutput = (TextView) findViewById(R.id.textViewDsum);
+        btnFire = (Button) findViewById(R.id.b_Dsum);
+        etNumber = (EditText) findViewById(R.id.editNumberDsum);
 
-        /*
-         *
-         *  TODO: IMPLEMENT THIS
-         *  NUMBER 2: LINK VIEWS
-         *
-         *
-         */
+        btnFire.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Clear text view
+                tvOutput.setText("");
 
+                // Invoke calculation
+                CalculateDigitSum();
+            }
+        });
     }
 
     /**
      * Trigger the Digit Sum Calculation
      */
     private void CalculateDigitSum() {
-        /*
-         *
-         *  TODO: IMPLEMENT THIS
-         *  NUMBER 3: CALCULATE AND PRINT DIGIT SUM
-         *
-         *
-         */
-
-        /*
-         * a) Get entered number
-         */
-
-
+        try{
+            int qsum;
+            qsum = Integer.parseInt(etNumber.getText().toString());
+            qsum = getDigitSum(qsum);
+            tvOutput.setText(Integer.toString(qsum));
         /*
          * b) Calculate digit sum
          *    (Hint: This can be done recursively using an additional function/method
@@ -68,5 +66,12 @@ public class DigitSumActivity extends AppCompatActivity {
          */
 
         }
+        catch (NumberFormatException e) {
+            tvOutput.setText("Die Eingabe übersteigt den zulässigen Wertebereich");}
+    }
 
+    private int getDigitSum(int i) {
+        if (i<=9) {return i;}
+        return (i%10) + getDigitSum(i/10);
+    }
 }
