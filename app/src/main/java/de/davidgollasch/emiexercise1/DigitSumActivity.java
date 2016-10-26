@@ -61,7 +61,9 @@ public class DigitSumActivity extends AppCompatActivity {
     }
 
     /**
-     * Calculates the digit sum
+     * Diese Funktion berechnet iterativ die Quersumme einer Zahl
+     * Dabei wird die der Rest der Zahl geteilt durch 10 addiert, anschließend wird die Zahl durch 10 geiteilt,
+     * solange bis das Ergebnis der Division kleiner 1 ist.
      * @param i - Number
      * @return digitsum of i
      */
