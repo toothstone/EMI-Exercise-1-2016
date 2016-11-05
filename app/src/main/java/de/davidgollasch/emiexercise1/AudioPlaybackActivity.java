@@ -197,16 +197,17 @@ public class AudioPlaybackActivity extends AppCompatActivity {
      * Handle Bass Boost Switch
      */
     private void BassBoostClicked() {
-        ConfigureSoundEffects(mpEasternEmotion.getAudioSessionId());
-        ConfigureSoundEffects(mpReggaeFeeling.getAudioSessionId());
+        if (sEasternEmotion.isChecked()){ConfigureSoundEffects(mpEasternEmotion.getAudioSessionId());}
+        if (sReggaeFeeling.isChecked()){ConfigureSoundEffects(mpReggaeFeeling.getAudioSessionId());}
+
     }
 
     /**
      * Handle Virtualizer Switch
      */
     private void VirtualizerClicked() {
-        ConfigureSoundEffects(mpEasternEmotion.getAudioSessionId());
-        ConfigureSoundEffects(mpReggaeFeeling.getAudioSessionId());
+        if (sEasternEmotion.isChecked()){ConfigureSoundEffects(mpEasternEmotion.getAudioSessionId());}
+        if (sReggaeFeeling.isChecked()){ConfigureSoundEffects(mpReggaeFeeling.getAudioSessionId());}
     }
 
 }
